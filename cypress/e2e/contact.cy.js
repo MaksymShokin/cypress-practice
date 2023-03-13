@@ -9,6 +9,11 @@ describe('contact form', () => {
     cy.get('[data-cy="contact-btn-submit"]')
       .contains('Send Message')
       .should('not.have.attr', 'disabled');
+
+    // using then method
+    cy.get('[data-cy="contact-btn-submit"]').then(el => {
+      expect(el.attr('disabled')).to.be.undefined;
+    });
     // store alias
     // cy.get('[data-cy="contact-btn-submit"]').as('submitBtn');
     // use alias
