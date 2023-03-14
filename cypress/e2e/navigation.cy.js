@@ -14,3 +14,6 @@ describe('basic navigation', () => {
     cy.location('pathname').should('eq', '/');
   });
 });
+
+// run tests without studio 
+// npx cypress run

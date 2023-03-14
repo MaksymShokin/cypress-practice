@@ -43,24 +43,31 @@ describe('contact form', () => {
     cy.get('[data-cy="contact-input-message"]').blur();
     cy.get('[data-cy="contact-input-message"]')
       .parent()
-      .then(el => {
-        expect(el.attr('class')).to.contain('invalid');
-      });
+      .should('have.attr', 'class')
+      .and('contain', 'invalid');
+    // .then(el => {
+    //   expect(el.attr('class')).to.contain('invalid');
+    // });
 
     cy.get('[data-cy="contact-input-email"]').focus();
     cy.get('[data-cy="contact-input-email"]').blur();
     cy.get('[data-cy="contact-input-email"]')
       .parent()
-      .then(el => {
-        expect(el.attr('class')).to.contain('invalid');
-      });
+      .should('have.attr', 'class')
+      .and('contain', 'invalid');
+    // .then(el => {
+    //   expect(el.attr('class')).to.contain('invalid');
+    // });
 
     cy.get('[data-cy="contact-input-name"]').focus();
     cy.get('[data-cy="contact-input-name"]').blur();
     cy.get('[data-cy="contact-input-name"]')
       .parent()
-      .then(el => {
-        expect(el.attr('class')).to.contain('invalid');
-      });
+      .should('have.attr', 'class')
+      // class is passed from first should to and
+      .and('contain', 'invalid');
+    // .then(el => {
+    //   expect(el.attr('class')).to.contain('invalid');
+    // });
   });
 });
