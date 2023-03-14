@@ -23,5 +23,11 @@ describe('contact form', () => {
     cy.get('[data-cy="contact-btn-submit"]')
       .contains('Sending...')
       .should('have.attr', 'disabled');
+
+    // simulating enter press event
+    cy.get('[data-cy="contact-input-email"]').type('123{enter}');
+    cy.get('[data-cy="contact-btn-submit"]')
+      .contains('Sending...')
+      .should('have.attr', 'disabled');
   });
 });
