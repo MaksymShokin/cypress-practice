@@ -53,8 +53,12 @@ describe('contact form', () => {
     cy.get('[data-cy="contact-input-email"]').blur();
     cy.get('[data-cy="contact-input-email"]')
       .parent()
-      .should('have.attr', 'class')
-      .and('contain', 'invalid');
+    // another way of writing should instead of than
+      .should(el => {
+        expect(el.attr('class')).contain('invalid');
+      });
+    // .should('have.attr', 'class')
+    // .and('contain', 'invalid');
     // .then(el => {
     //   expect(el.attr('class')).to.contain('invalid');
     // });
