@@ -59,6 +59,7 @@ describe('contact form', () => {
     //   expect(el.attr('class')).to.contain('invalid');
     // });
 
+    cy.screenshot();
     cy.get('[data-cy="contact-input-name"]').focus();
     cy.get('[data-cy="contact-input-name"]').blur();
     cy.get('[data-cy="contact-input-name"]')
@@ -66,6 +67,8 @@ describe('contact form', () => {
       .should('have.attr', 'class')
       // class is passed from first should to and
       .and('contain', 'invalid');
+    cy.screenshot();
+
     // .then(el => {
     //   expect(el.attr('class')).to.contain('invalid');
     // });
