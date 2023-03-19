@@ -1,7 +1,12 @@
 /// <reference types="Cypress" />
 
-describe('contact form', () => {
-  it('should submit the form', () => {
+describe('contact form', //   defaultCommandTimeout: 3000 // { // also can change config here on describe level
+// },
+() => {
+  it('should submit the form', // { // also can change config here on test level
+  //   defaultCommandTimeout: 3000
+  // },
+  () => {
     cy.visit('http://localhost:5173/about');
     cy.get('[data-cy="contact-input-message"]').type('Hello world');
     cy.get('[data-cy="contact-input-name"]').type('Big Boss');
@@ -53,7 +58,7 @@ describe('contact form', () => {
     cy.get('[data-cy="contact-input-email"]').blur();
     cy.get('[data-cy="contact-input-email"]')
       .parent()
-    // another way of writing should instead of than
+      // another way of writing should instead of than
       .should(el => {
         expect(el.attr('class')).contain('invalid');
       });
