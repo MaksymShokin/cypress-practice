@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 describe('basic navigation', () => {
-  it('should navigate between pages', () => {
+  it('should navigate between pages', { browser: 'firefox' }, () => {
     cy.visit('http://localhost:5173/');
     cy.contains('Home Page');
     cy.get('[data-cy="header-about-link"]').click();
@@ -15,5 +15,5 @@ describe('basic navigation', () => {
   });
 });
 
-// run tests without studio 
+// run tests without studio
 // npx cypress run
