@@ -7,7 +7,7 @@ describe('contact form', //   defaultCommandTimeout: 3000 // { // also can chang
   //   defaultCommandTimeout: 3000
   // },
   () => {
-    cy.visit('http://localhost:5173/about');
+    cy.visit('/about');
     cy.get('[data-cy="contact-input-message"]').type('Hello world');
     cy.get('[data-cy="contact-input-name"]').type('Big Boss');
     cy.get('[data-cy="contact-input-email"]').type('123@123.com');
@@ -37,7 +37,7 @@ describe('contact form', //   defaultCommandTimeout: 3000 // { // also can chang
   });
 
   it('should validate the form input', () => {
-    cy.visit('http://localhost:5173/about');
+    cy.visit('/about');
     cy.get('[data-cy="contact-btn-submit"]').click();
     cy.get('[data-cy="contact-btn-submit"]').then(el => {
       expect(el).to.not.have.attr('disabled');
