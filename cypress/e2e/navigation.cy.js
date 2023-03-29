@@ -2,6 +2,7 @@
 
 describe('basic navigation', () => {
   it('should navigate between pages', { browser: 'chrome' }, () => {
+    cy.task('connectDb', 'mongodb').then(val => console.log(val));
     cy.visit('/');
     cy.contains('Home Page');
     // using custom query function
