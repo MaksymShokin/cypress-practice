@@ -1,13 +1,14 @@
 /// <reference types="Cypress" />
 
-describe('contact form', //   defaultCommandTimeout: 3000 // { // also can change config here on describe level
-// },
+describe('contact form', // }, //   defaultCommandTimeout: 3000 // { // also can change config here on describe level
 () => {
-  it('should submit the form', // { // also can change config here on test level
-  //   defaultCommandTimeout: 3000
+  beforeEach(() => {
+    cy.visit('/about');
+  });
+  it('should submit the form', //   defaultCommandTimeout: 3000 // { // also can change config here on test level
   // },
   () => {
-    cy.visit('/about');
+    // cy.visit('/about');
     cy.get('[data-cy="contact-input-message"]').type('Hello world');
     cy.get('[data-cy="contact-input-name"]').type('Big Boss');
     cy.get('[data-cy="contact-input-email"]').type('123@123.com');
@@ -37,7 +38,7 @@ describe('contact form', //   defaultCommandTimeout: 3000 // { // also can chang
   });
 
   it('should validate the form input', () => {
-    cy.visit('/about');
+    // cy.visit('/about');
     cy.get('[data-cy="contact-btn-submit"]').click();
     cy.get('[data-cy="contact-btn-submit"]').then(el => {
       expect(el).to.not.have.attr('disabled');
