@@ -4,7 +4,9 @@ describe('basic navigation', () => {
   it('should navigate between pages', { browser: 'chrome' }, () => {
     cy.visit('/');
     cy.contains('Home Page');
-    cy.get('[data-cy="header-about-link"]').click();
+    // using custom query function
+    cy.getById('header-about-link').click();
+    // cy.get('[data-cy="header-about-link"]').click();
     cy.location('pathname').should('eq', '/about');
     cy.go('back');
     cy.location('pathname').should('eq', '/');
